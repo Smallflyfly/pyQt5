@@ -8,13 +8,13 @@ import sys
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPalette, QPixmap
-from PyQt5.QtWidgets import QMainWindow, QLabel, QVBoxLayout, QApplication
+from PyQt5.QtWidgets import QMainWindow, QLabel, QVBoxLayout, QApplication, QWidget
 
 
-class LabelDemo(QMainWindow):
+class LabelDemo(QWidget):
     def __init__(self):
         super().__init__()
-        # self.label1 = QLabel(self)
+        self.label1 = QLabel(self)
         self.label2 = QLabel(self)
         self.label3 = QLabel(self)
         self.label4 = QLabel(self)
@@ -22,17 +22,12 @@ class LabelDemo(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        # self.label1.setText("这是一个文本标签")
-        # self.label1.setAutoFillBackground(True)
-        # # 设置背景色
-        # self.palette.setColor(QPalette.Window, Qt.blue)
-        # self.label1.setPalette(self.palette)
-        # self.label1.setAlignment(Qt.AlignCenter)
-
-        self.label2 = QLabel(self)
-        self.label3 = QLabel(self)
-        self.label4 = QLabel(self)
-        self.palette = QPalette()
+        self.label1.setText("这是一个文本标签")
+        self.label1.setAutoFillBackground(True)
+        # 设置背景色
+        self.palette.setColor(QPalette.Window, Qt.blue)
+        self.label1.setPalette(self.palette)
+        self.label1.setAlignment(Qt.AlignCenter)
 
         self.label2.setText("<a href='#'>欢迎使用Python GUI程序</a>")
 
@@ -45,7 +40,7 @@ class LabelDemo(QMainWindow):
         self.label4.setToolTip("这是个超级链接")
 
         vlayout = QVBoxLayout()
-        # vlayout.addWidget(self.label1)
+        vlayout.addWidget(self.label1)
         vlayout.addWidget(self.label2)
         vlayout.addWidget(self.label3)
         vlayout.addWidget(self.label4)
