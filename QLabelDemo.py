@@ -13,11 +13,11 @@ from PyQt5.QtWidgets import QMainWindow, QLabel, QVBoxLayout, QApplication, QWid
 
 class LabelDemo(QWidget):
     def __init__(self):
-        super().__init__()
-        self.label1 = QLabel(self)
-        self.label2 = QLabel(self)
-        self.label3 = QLabel(self)
-        self.label4 = QLabel(self)
+        super(LabelDemo, self).__init__()
+        self.label1 = QLabel()
+        self.label2 = QLabel()
+        self.label3 = QLabel()
+        self.label4 = QLabel()
         self.palette = QPalette()
         self.initUI()
 
