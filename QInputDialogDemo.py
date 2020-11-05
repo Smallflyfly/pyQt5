@@ -4,7 +4,9 @@
 @author:fangpf
 @time: 2020/11/02
 """
-from PyQt5.QtWidgets import QWidget, QFormLayout, QPushButton, QLineEdit
+import sys
+
+from PyQt5.QtWidgets import QWidget, QFormLayout, QPushButton, QLineEdit, QInputDialog, QApplication
 
 
 class QInputDialogDemo(QWidget):
@@ -31,11 +33,28 @@ class QInputDialogDemo(QWidget):
         self.button3.clicked.connect(self.get_int)
         self.form_layout.addRow(self.button3, self.line_edit3)
 
-
+        self.setLayout(self.form_layout)
 
     def get_item(self):
+        items = ('C', 'C++', 'R', 'Python', 'Java')
+        item, ok = QInputDialog.getItem(self, '请选择编程语言', '语言列表', items)
+        if ok and item:
+            self.line_edit1.setText(item)
 
     def get_text(self):
+        text, ok = QInputDialog.getText(self, '请输入文本', '输入姓名')
+        if text and ok:
+            self.line_edit2.setText(text)
 
     def get_int(self):
+        num, ok = QInputDialog.getInt(self, '整数输入框', '输入数字')
+        if num and ok:
+            self.line_edit3.setText(str(num))
 
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = QInputDialogDemo()
+    window.show()
+
+    sys.exit(app.exec_())
